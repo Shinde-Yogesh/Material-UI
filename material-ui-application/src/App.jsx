@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+
+import BasicButtons from './components/BasicButtons'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -9,6 +9,7 @@ function App() {
   return (
     <>
      <h2>Application is Up and Runing</h2>
+     <BasicButtons/>
     </>
   )
 }
