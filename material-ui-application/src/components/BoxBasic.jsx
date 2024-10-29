@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import { ThemeProvider } from '@mui/material/styles';
 import { Stack } from '@mui/material';
+import Grid from '@mui/material/Grid';
 
 /**
  * Basic usage of the Box component.
@@ -12,6 +13,7 @@ import { Stack } from '@mui/material';
 
 export default function BoxBasic() {
   return (
+    <>
     <Stack
     sx={{border: '1px solid', padding: 2}}
     direction={'row'}
@@ -45,5 +47,13 @@ export default function BoxBasic() {
       />
     </ThemeProvider>
     </Stack>
+    {/* auto for the component size  */}
+   <Grid container my={2}   spacing={2}>
+        <Grid item xs={3}><Box bgcolor={'primary.light'}>Item 1</Box></Grid>
+        <Grid item xs='auto'><Box bgcolor={'primary.light'}>Item 2</Box></Grid>
+        <Grid item xs={3}><Box bgcolor={'primary.light'}>Item 3</Box></Grid>
+        <Grid item xs={3}><Box bgcolor={'primary.light'}>Item 4</Box></Grid>
+   </Grid>
+    </>
   );
 }
