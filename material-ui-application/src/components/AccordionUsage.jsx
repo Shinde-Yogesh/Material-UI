@@ -6,11 +6,13 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
+import { useState } from 'react';
 
 export default function AccordionUsage() {
+  const [expanded, setExpanded] = useState(false);
   return (
     <div>
-      <Accordion>
+      <Accordion expanded={expanded === 'panel1'} onChange={(event, newExpanded) => setExpanded(newExpanded ? 'panel1' : false)}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -25,7 +27,7 @@ export default function AccordionUsage() {
           </AccordionDetails>
       </Accordion>
 
-      <Accordion>
+      <Accordion expanded={expanded === 'panel2'} onChange={(event, newExpanded) => setExpanded(newExpanded ? 'panel2' : false)}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -40,7 +42,7 @@ export default function AccordionUsage() {
           </AccordionDetails>
       </Accordion>
 
-      <Accordion>
+      <Accordion expanded={expanded === 'panel3'} onChange={(event, newExpanded) => setExpanded(newExpanded ? 'panel3' : false)}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel3a-content"
