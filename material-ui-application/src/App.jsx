@@ -12,8 +12,8 @@ function App() {
     <>
      {/* <h2>Application is Up and Runing</h2>
      <BasicButtons/> */}
-     {/* <BoxBasic/> */}
-     <SimplePaper />
+     <BoxBasic/>
+     {/* <SimplePaper /> */}
     </>
   )
 }

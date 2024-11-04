@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import { ThemeProvider } from '@mui/material/styles';
-import { Stack } from '@mui/material';
+import { Paper, Stack } from '@mui/material';
 import Grid from '@mui/material/Grid';
 
 /**
@@ -13,7 +13,7 @@ import Grid from '@mui/material/Grid';
 
 export default function BoxBasic() {
   return (
-    <>
+    <Paper sx={{ padding: '32px' }} elevation={3}>
     <Stack
     sx={{border: '1px solid', padding: 2}}
     direction={'row'}
@@ -54,6 +54,6 @@ export default function BoxBasic() {
         <Grid item xs={3}><Box bgcolor={'primary.light'}>Item 3</Box></Grid>
         <Grid item xs={3}><Box bgcolor={'primary.light'}>Item 4</Box></Grid>
    </Grid>
-    </>
+    </ Paper >
   );
 }
