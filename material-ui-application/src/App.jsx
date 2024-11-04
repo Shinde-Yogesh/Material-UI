@@ -5,6 +5,9 @@ import BasicButtons from './components/BasicButtons'
 import BoxBasic from './components/BoxBasic'
 import SimplePaper from './components/SimplePaper'
 import MuiCard from './components/MuiCard'
+import MuiAccordion from './components/AccordionUsage'
+import AccordionUsage from './components/AccordionUsage'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,7 +18,8 @@ function App() {
      <BasicButtons/> */}
      {/* <BoxBasic/> */}
      {/* <SimplePaper /> */}
-     <MuiCard />
+     {/* <MuiCard /> */}
+    <AccordionUsage />
     </>
   )
 }
