@@ -44,3 +44,6 @@
 body{
 background-color: #eeeeee;
 }
+.accordion-summary-hover:hover {
+  background-color: lightblue; /* Change to desired hover color */
+}

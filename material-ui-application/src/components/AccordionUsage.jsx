@@ -17,6 +17,11 @@ export default function AccordionUsage() {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
+          sx={{
+            '&:hover': {
+              backgroundColor: 'lightblue', // Change to desired hover color
+            },
+          }}
         >
           <Typography>Accordion 1</Typography> 
         </AccordionSummary>
