@@ -7,6 +7,7 @@ import SimplePaper from './components/SimplePaper'
 import MuiCard from './components/MuiCard'
 import MuiAccordion from './components/AccordionUsage'
 import AccordionUsage from './components/AccordionUsage'
+import { MuiImageList } from './components/MuiImageList'
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
      {/* <BoxBasic/> */}
      {/* <SimplePaper /> */}
      {/* <MuiCard /> */}
-    <AccordionUsage />
+    {/* <AccordionUsage /> */}
+    <MuiImageList/>
     </>
   )
 }
