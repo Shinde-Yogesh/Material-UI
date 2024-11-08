@@ -5,6 +5,7 @@
   text-align: center;
 }
 
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -42,7 +43,7 @@
 }
 
 body{
-background-color: #eeeeee;
+/* background-color: #eeeeee; */
 }
 .accordion-summary-hover:hover {
   background-color: lightblue; /* Change to desired hover color */
