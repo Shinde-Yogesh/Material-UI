@@ -7,6 +7,7 @@ export const MuiLinks = () => {
                 Inherited color link
             </Link>
             <Link href="#" variant="body2"> Body link</Link>
+            <Link href="#" variant="body2" underline="hover"> OnHover</Link>
         </Stack>
     );
 }
