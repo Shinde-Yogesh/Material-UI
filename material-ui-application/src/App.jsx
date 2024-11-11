@@ -10,6 +10,7 @@ import AccordionUsage from './components/AccordionUsage'
 import { MuiImageList } from './components/MuiImageList'
 import CustomImageList from './components/CustomImageList'
 import { MuiNavbar } from './components/MuiNavbar'
+import { MuiLinks } from './components/MuiLinks'
 
 
 function App() {
@@ -25,7 +26,8 @@ function App() {
     {/* <AccordionUsage /> */}
     {/* <MuiImageList/> */}
     {/* <CustomImageList /> */}
-    <MuiNavbar />
+    {/* <MuiNavbar /> */}
+    <MuiLinks />
     </>
   )
 }
