@@ -13,3 +13,4 @@ export const MuiBreadcrumbs = () => {
         </Box>
     )
 }
+// max are8 and start from 1 index
