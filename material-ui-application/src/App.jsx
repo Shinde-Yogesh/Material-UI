@@ -12,6 +12,7 @@ import CustomImageList from './components/CustomImageList'
 import { MuiNavbar } from './components/MuiNavbar'
 import { MuiLinks } from './components/MuiLinks'
 import { MuiBreadcrumbs } from './components/MuiBreadcrumbs'
+import { MuiDrawer } from './components/MuiDrawer'
 
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
     {/* <CustomImageList /> */}
     {/* <MuiNavbar /> */}
     {/* <MuiLinks /> */}
-    <MuiBreadcrumbs />
+    {/* <MuiBreadcrumbs /> */}
+    <MuiDrawer />
     </>
   )
 }
