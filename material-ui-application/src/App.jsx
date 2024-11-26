@@ -13,6 +13,7 @@ import { MuiNavbar } from './components/MuiNavbar'
 import { MuiLinks } from './components/MuiLinks'
 import { MuiBreadcrumbs } from './components/MuiBreadcrumbs'
 import { MuiDrawer } from './components/MuiDrawer'
+import { MuiSpeedDial } from './components/MuiSpeedDial'
 
 
 function App() {
@@ -31,7 +32,8 @@ function App() {
     {/* <MuiNavbar /> */}
     {/* <MuiLinks /> */}
     {/* <MuiBreadcrumbs /> */}
-    <MuiDrawer />
+    {/* <MuiDrawer /> */}
+    <MuiSpeedDial />
     </>
   )
 }
