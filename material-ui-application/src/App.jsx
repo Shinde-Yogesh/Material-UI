@@ -14,6 +14,7 @@ import { MuiLinks } from './components/MuiLinks'
 import { MuiBreadcrumbs } from './components/MuiBreadcrumbs'
 import { MuiDrawer } from './components/MuiDrawer'
 import { MuiSpeedDial } from './components/MuiSpeedDial'
+import PlaygroundSpeedDial from './components/PlaygroundSpeedDial'
 
 
 function App() {
@@ -33,7 +34,8 @@ function App() {
     {/* <MuiLinks /> */}
     {/* <MuiBreadcrumbs /> */}
     {/* <MuiDrawer /> */}
-    <MuiSpeedDial />
+    {/* <MuiSpeedDial /> */}
+    <PlaygroundSpeedDial />
     </>
   )
 }
