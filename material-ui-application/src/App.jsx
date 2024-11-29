@@ -16,6 +16,7 @@ import { MuiDrawer } from './components/MuiDrawer'
 import { MuiSpeedDial } from './components/MuiSpeedDial'
 import PlaygroundSpeedDial from './components/PlaygroundSpeedDial'
 import SpeedDialTooltipOpen from './components/SpeedDialTooltipOpen'
+import AnchorTemporaryDrawer from './components/AnchorTemporaryDrawer'
 
 
 function App() {
@@ -37,7 +38,8 @@ function App() {
     {/* <MuiDrawer /> */}
     {/* <MuiSpeedDial /> */}
     {/* <PlaygroundSpeedDial /> */}
-    <SpeedDialTooltipOpen />
+    <AnchorTemporaryDrawer />
+    {/* <SpeedDialTooltipOpen /> */}
     </>
   )
 }
