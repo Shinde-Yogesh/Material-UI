@@ -12,7 +12,7 @@ export default function MuiAvatar() {
       </Stack>
 
       <Stack direction={"row"} spacing={1}>
-        <AvatarGroup>
+        <AvatarGroup max={3}>
           <Avatar sx={{bgcolor: "primary.light" }}>BW</Avatar>
           <Avatar sx={{bgcolor: "success.light" }}>CK</Avatar>
           <Avatar
@@ -24,6 +24,11 @@ export default function MuiAvatar() {
             alt="Clark Kent"
           />
         </AvatarGroup>
+      </Stack>
+
+      <Stack direction={"row"} spacing={1}>
+        <Avatar sx={{ width: 32, height: 32, bgcolor: "primary.light" }}>BW</Avatar>
+        <Avatar sx={{ width: 32, height: 32, bgcolor: "success.light" }}>CK</Avatar>
       </Stack>
     </Stack>
   );
