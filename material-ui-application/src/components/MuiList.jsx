@@ -1,31 +1,47 @@
 import React from "react";
-import { Box, List, ListItem, ListItemText, ListItemIcon, ListItemAvatar,Avatar } from "@mui/material";
+import {
+  Box,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  ListItemAvatar,
+  Avatar,
+  ListItemButton,
+  Divider
+} from "@mui/material";
 import MailIcon from "@mui/icons-material/Mail";
 export const MuiList = () => {
   return (
     <Box sx={{ width: "400px", bgcolor: "#575959" }}>
       <List>
-        <ListItem>
-          <ListItemIcon>
-            <ListItemAvatar>
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <ListItemAvatar>
                 <Avatar>
-                <MailIcon />
+                  <MailIcon />
                 </Avatar>
-            </ListItemAvatar>
-          </ListItemIcon>
-          <ListItemText primary="List Item 1" />
+              </ListItemAvatar>
+            </ListItemIcon>
+            <ListItemText primary="List Item 1" secondary="Secondary text" />
+          </ListItemButton>
         </ListItem>
+        <Divider />
         <ListItem>
           <ListItemIcon>
             <MailIcon />
           </ListItemIcon>
-          <ListItemText primary="List Item 2" />
+          <ListItemText primary="List Item 2" secondary="Secondary text" />
         </ListItem>
+
+        <Divider />
+        
         <ListItem>
           <ListItemIcon>
             <MailIcon />
           </ListItemIcon>
-          <ListItemText primary="List Item 3" />
+          <ListItemText primary="List Item 3" secondary="Secondary text" />
         </ListItem>
       </List>
     </Box>
