@@ -20,6 +20,7 @@ import AnchorTemporaryDrawer from './components/AnchorTemporaryDrawer'
 import SimpleBottomNavigation from './components/SimpleBottomNavigation'
 import MuiAvatar from './components/MuiAvatar'
 import { MuiList } from './components/MuiList'
+import { MuiChip } from './components/MuiChip'
 
 
 function App() {
@@ -45,7 +46,8 @@ function App() {
     {/* <SpeedDialTooltipOpen /> */}
     {/* <SimpleBottomNavigation /> */}
     {/* <MuiAvatar /> */}
-    <MuiList />
+    {/* <MuiList /> */}
+    <MuiChip />
     </>
   )
 }
