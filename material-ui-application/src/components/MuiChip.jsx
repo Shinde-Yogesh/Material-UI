@@ -10,6 +10,8 @@ export const MuiChip = () => {
         variant="outlined"
         avatar={<Avatar>V</Avatar>}
       />
+      <Chip label="Click" color="success" onClick={() => alert("Clicked")} />
+    <Chip label="Delete" color="error" onDelete={() => alert("Deleted")} />
     </Stack>
   );
 };
