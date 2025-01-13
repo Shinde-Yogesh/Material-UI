@@ -23,6 +23,7 @@ import SimpleBottomNavigation from './components/SimpleBottomNavigation'
 import MuiAvatar from './components/MuiAvatar'
 import { MuiList } from './components/MuiList'
 import { MuiChip } from './components/MuiChip'
+import { MuiTooltips } from './components/MuiTooltips'
 
 
 function App() {
@@ -49,7 +50,8 @@ function App() {
     {/* <SimpleBottomNavigation /> */}
     {/* <MuiAvatar /> */}
     {/* <MuiList /> */}
-    <MuiChip />
+    {/* <MuiChip /> */}
+    <MuiTooltips />
     </>
   )
 }
