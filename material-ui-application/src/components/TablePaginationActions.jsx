@@ -1,6 +1,6 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import { useTheme } from "@mui/material/styles";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { useTheme } from '@mui/material/styles';
 import {
   Box,
   Table,
@@ -12,39 +12,40 @@ import {
   TableRow,
   Paper,
   IconButton,
-} from "@mui/material";
-import {
-  FirstPage as FirstPageIcon,
-  KeyboardArrowLeft,
-  KeyboardArrowRight,
-  LastPage as LastPageIcon,
-} from "@mui/icons-material";
+} from '@mui/material';
+import FirstPageIcon from '@mui/icons-material/FirstPage';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import LastPageIcon from '@mui/icons-material/LastPage';
 
-const TablePaginationActions = React.memo(({ count, page, rowsPerPage, onPageChange }) => {
+function TablePaginationActions({ count, page, rowsPerPage, onPageChange }) {
   const theme = useTheme();
-  const totalPages = Math.ceil(count / rowsPerPage) - 1;
-
-  const handlePageChange = (event, newPage) => {
-    if (newPage >= 0 && newPage <= totalPages) onPageChange(event, newPage);
-  };
 
   return (
     <Box sx={{ flexShrink: 0, ml: 2.5 }}>
-      <IconButton onClick={(e) => handlePageChange(e, 0)} disabled={page === 0} aria-label="first page">
-        {theme.direction === "rtl" ? <LastPageIcon /> : <FirstPageIcon />}
+      <IconButton onClick={(e) => onPageChange(e, 0)} disabled={page === 0} aria-label="first page">
+        {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />}
       </IconButton>
-      <IconButton onClick={(e) => handlePageChange(e, page - 1)} disabled={page === 0} aria-label="previous page">
-        {theme.direction === "rtl" ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+      <IconButton onClick={(e) => onPageChange(e, page - 1)} disabled={page === 0} aria-label="previous page">
+        {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
       </IconButton>
-      <IconButton onClick={(e) => handlePageChange(e, page + 1)} disabled={page >= totalPages} aria-label="next page">
-        {theme.direction === "rtl" ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+      <IconButton
+        onClick={(e) => onPageChange(e, page + 1)}
+        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+        aria-label="next page"
+      >
+        {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
       </IconButton>
-      <IconButton onClick={(e) => handlePageChange(e, totalPages)} disabled={page >= totalPages} aria-label="last page">
-        {theme.direction === "rtl" ? <FirstPageIcon /> : <LastPageIcon />}
+      <IconButton
+        onClick={(e) => onPageChange(e, Math.max(0, Math.ceil(count / rowsPerPage) - 1))}
+        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+        aria-label="last page"
+      >
+        {theme.direction === 'rtl' ? <FirstPageIcon /> : <LastPageIcon />}
       </IconButton>
     </Box>
   );
-});
+}
 
 TablePaginationActions.propTypes = {
   count: PropTypes.number.isRequired,
@@ -53,78 +54,55 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-const createData = (name, calories, fat) => ({ name, calories, fat });
-
 const rows = [
-  createData("Cupcake", 305, 3.7),
-  createData("Donut", 452, 25.0),
-  createData("Eclair", 262, 16.0),
-  createData("Frozen yoghurt", 159, 6.0),
-  createData("Gingerbread", 356, 16.0),
-  createData("Honeycomb", 408, 3.2),
-  createData("Ice cream sandwich", 237, 9.0),
-  createData("Jelly Bean", 375, 0.0),
-  createData("KitKat", 518, 26.0),
-  createData("Lollipop", 392, 0.2),
-  createData("Marshmallow", 318, 0),
-  createData("Nougat", 360, 19.0),
-  createData("Oreo", 437, 18.0),
+  { name: 'Cupcake', calories: 305, fat: 3.7 },
+  { name: 'Donut', calories: 452, fat: 25.0 },
+  { name: 'Eclair', calories: 262, fat: 16.0 },
+  { name: 'Frozen yoghurt', calories: 159, fat: 6.0 },
+  { name: 'Gingerbread', calories: 356, fat: 16.0 },
+  { name: 'Honeycomb', calories: 408, fat: 3.2 },
+  { name: 'Ice cream sandwich', calories: 237, fat: 9.0 },
+  { name: 'Jelly Bean', calories: 375, fat: 0.0 },
+  { name: 'KitKat', calories: 518, fat: 26.0 },
+  { name: 'Lollipop', calories: 392, fat: 0.2 },
+  { name: 'Marshmallow', calories: 318, fat: 0 },
+  { name: 'Nougat', calories: 360, fat: 19.0 },
+  { name: 'Oreo', calories: 437, fat: 18.0 },
 ].sort((a, b) => a.calories - b.calories);
 
 export default function CustomPaginationActionsTable() {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  const emptyRows = React.useMemo(
-    () => (page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0),
-    [page, rowsPerPage]
-  );
-
-  const paginatedRows = React.useMemo(
-    () => (rowsPerPage > 0 ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : rows),
-    [page, rowsPerPage]
-  );
-
-  const handleChangePage = React.useCallback((event, newPage) => {
-    setPage(newPage);
-  }, []);
-
-  const handleChangeRowsPerPage = React.useCallback((event) => {
+  const handleChangePage = (event, newPage) => setPage(newPage);
+  const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
-  }, []);
+  };
+
+  const displayedRows =
+    rowsPerPage > 0 ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : rows;
 
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
         <TableBody>
-          {paginatedRows.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">{row.name}</TableCell>
-              <TableCell style={{ width: 160 }} align="right">{row.calories}</TableCell>
-              <TableCell style={{ width: 160 }} align="right">{row.fat}</TableCell>
+          {displayedRows.map(({ name, calories, fat }) => (
+            <TableRow key={name}>
+              <TableCell component="th" scope="row">{name}</TableCell>
+              <TableCell align="right">{calories}</TableCell>
+              <TableCell align="right">{fat}</TableCell>
             </TableRow>
           ))}
-          {emptyRows > 0 && (
-            <TableRow style={{ height: 53 * emptyRows }}>
-              <TableCell colSpan={3} />
-            </TableRow>
-          )}
         </TableBody>
         <TableFooter>
           <TableRow>
             <TablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
+              rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
               colSpan={3}
               count={rows.length}
               rowsPerPage={rowsPerPage}
               page={page}
-              slotProps={{
-                select: {
-                  inputProps: { "aria-label": "rows per page" },
-                  native: true,
-                },
-              }}
               onPageChange={handleChangePage}
               onRowsPerPageChange={handleChangeRowsPerPage}
               ActionsComponent={TablePaginationActions}
